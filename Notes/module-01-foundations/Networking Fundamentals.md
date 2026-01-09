@@ -74,5 +74,34 @@ It also includes an internet gateway. The VPC uses a main route table to connect
 
 <img width="699" height="375" alt="Screenshot from 2026-01-09 12-38-27" src="https://github.com/user-attachments/assets/5426fc47-d082-423f-b4a3-59a636af8c34" />
 
+**VPC traffic Security**
 
+There are two main security constraints Network ACLs and Security Groups.
+A network ACL is an optional layer of security for your VPC that acts as a firewall for controlling traffic in and out of one or more subnets. Every VPC automatically comes with a default network ACL. It allows all inbound and outbound IPv4 traffic.
 
+![Uploading Screenshot from 2026-01-09 12-57-20.png…]()
+
+**Inbound and outbound IPv4 traffic**
+
+A network ACL contains a numbered list of rules. We evaluate the rules in order, starting with the lowest numbered rule, to determine whether traffic is allowed in or out of any subnet associated with the network ACL. 
+
+Every VPC automatically comes with a modifiable default network ACL. By default, it allows all inbound and outbound IPv4 traffic. You can create a custom network ACL and associate it with a subnet. By default, custom network ACLs deny all inbound and outbound traffic, until you add rules.
+
+Each network ACL includes a rule whose rule number is an asterisk. This rule ensures that if a packet doesn't match any of the other numbered rules, it is denied. You can't modify or remove this rule.
+
+Network ACL rules
+Each network ACL includes a rule whose rule number is an asterisk. This rule ensures that if a packet doesn't match any of the other numbered rules, it is denied. You can't modify or remove this rule.
+
+Components of a network ACL rule include:
+
+**Rule number** – Rules are evaluated starting with the lowest numbered rule. As soon as a rule matches traffic, it is applied regardless of any higher-numbered rule that might contradict it.
+**Type** – The type of traffic; for example, Secure Shell, or SSH. You can also specify all traffic or a custom range.
+**Protocol** – You can specify any protocol that has a standard protocol number. 
+**Port range** – The listening port or port range for the traffic. For example, 80 for HTTP traffic.
+**Source** – For inbound rules only, the source of the traffic (CIDR range).
+**Destination** – For outbound rules only, the destination for the traffic (CIDR range).
+**Allow or Deny** – Whether to allow or deny the specified traffic.
+Network ACLs are **stateless**, which means that responses to allowed inbound traffic are subject to the rules for outbound traffic (and vice versa).
+
+**Security Groups**
+A security group acts as a virtual firewall for your instance to control inbound and outbound traffic. Security groups act at the network interface level, not the subnet level, and they support Allow rules only.
