@@ -21,7 +21,7 @@ The goal is to build a clear, practical, and evolving knowledge base that reflec
 
 ---
 
-## 🧠 Topics Covered
+## Topics Covered
 
 - AWS Well-Architected Framework
 - Security, Reliability, Performance, and Cost Optimization
@@ -46,7 +46,7 @@ Examples:
 
 ---
 
-## 🤝 Contributions & Feedback
+## Contributions & Feedback
 
 This is a learning-focused repository.  
 If you spot:
